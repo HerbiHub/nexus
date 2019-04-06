@@ -5,7 +5,8 @@
     "title": "Nexus",
     "license": {
       "name": "GPLv3.0"
-    }
+    },
+    "description": "Allows user access to query and modify the state of various power box controllers."
   },
   "servers": [
     {
