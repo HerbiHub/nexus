@@ -18,7 +18,7 @@
         "summary": "List all controllers",
         "description": "List of all controllers. Optionally may run a full system search.",
         "tags": [
-          "controller"
+          "Controllers"
         ],
         "parameters": [
           {
@@ -50,7 +50,7 @@
       "get": {
         "summary": "List specific controller",
         "tags": [
-          "controller"
+          "Controllers"
         ],
         "parameters": [
           {
@@ -82,7 +82,7 @@
         "summary": "List all sensors attached to controller",
         "description": "List of all sensors on a given controller.",
         "tags": [
-          "sensor"
+          "Sensors"
         ],
         "parameters": [
           {
@@ -114,7 +114,7 @@
         "summary": "List all sensors attached to controller",
         "description": "List of all sensors on a given controller.",
         "tags": [
-          "sensor"
+          "Sensors"
         ],
         "parameters": [
           {
@@ -132,9 +132,82 @@
             "required": true,
             "description": "Address of the controller to access",
             "schema": {
-              "type": "string"
+              "type": "integer"
             }
           }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of sensors",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Sensors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/controller/{address}/rtc/": {
+      "get": {
+        "summary": "Get the RTC value from a controller",
+        "description": "List of all sensors on a given controller.",
+        "tags": [
+          "Real Time Clock"
+        ],
+        "parameters": [
+          {
+            "name": "address",
+            "in": "path",
+            "required": true,
+            "description": "Address of the controller to access",
+            "schema": {
+              "type": "string"
+            }
+          },
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of sensors",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Sensors"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/controller/{address}/outlet/{id}": {
+      "get": {
+        "summary": "Get the setting of a specific outlet",
+        "description": "Get the setting of a specific outlet",
+        "tags": [
+          "Outlet"
+        ],
+        "parameters": [
+          {
+            "name": "address",
+            "in": "path",
+            "required": true,
+            "description": "Address of the controller to access",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of the  outlet to access",
+            "schema": {
+              "type": "integer"
+            }
+          },
         ],
         "responses": {
           "200": {
@@ -181,6 +254,29 @@
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/Sensor"
+        }
+      },
+      "RTC": {
+        "type": "object",
+        "properties": {
+          "year":{
+            "type": "integer"
+          },
+          "month":{
+            "type": "integer"
+          },
+          "day":{
+            "type": "integer"
+          },
+          "hour":{
+            "type": "integer"
+          },
+          "minute":{
+            "type": "integer"
+          },
+          "second":{
+            "type": "integer"
+          },
         }
       },
       "Error": {
