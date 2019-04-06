@@ -199,6 +199,45 @@
             }
           }
         }
+      },
+      "post": {
+        "summary": "Set the RTC value on a controller",
+        "description": "Set the RTC value on a controller",
+        "tags": [
+          "Real Time Clock"
+        ],
+        "parameters": [
+          {
+            "name": "address",
+            "in": "path",
+            "required": true,
+            "description": "Address of the controller to access",
+            "schema": {
+              "type": "string"
+            }
+          },
+        ],
+        "requestBody":{
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RTC"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A list of sensors",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RTC"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/controller/{address}/outlet/{id}": {

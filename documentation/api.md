@@ -43,5 +43,7 @@ A redirection URL to the influxDB instance.
 
 **PUT**: Set new value
 
+**DELETE**: Shortcut to set value to 0
+
 
 
