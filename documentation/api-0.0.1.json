@@ -266,8 +266,8 @@
         }
       },
       "delete": {
-        "summary": "Set the setting of a specific outlet",
-        "description": "Set the setting of a specific outlet",
+        "summary": "Turn off specific outlet",
+        "description": "Turn off a specific outlet. This has the same effect as a PUT with a percentage of 0.",
         "tags": [
           "Outlet"
         ],
@@ -289,18 +289,7 @@
             "schema": {
               "type": "integer"
             }
-          },
-          {
-            "name": "percent",
-            "in": "query",
-            "required": true,
-            "description": "Output percentage (between 0.0 and 100.0)",
-            "schema": {
-              "type": "number",
-              "maximum": 100,
-              "minimum": 0
-            }
-          },
+          }
         ],
         "responses": {
           "204": {
