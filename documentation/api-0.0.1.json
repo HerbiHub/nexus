@@ -12,6 +12,24 @@
       "url": "http://example.com/api/v0"
     }
   ],
+  "tags": [
+    {
+      "name": "Controllers",
+      "description": "Specific power box controllers"
+    },
+    {
+      "name": "Sensors",
+      "description": "Sensors, attached to Controllers"
+    },
+    {
+      "name": "Real Time Clock",
+      "description": "Controller Real Time Clock"
+    },
+    {
+      "name": "Outlet",
+      "description": "Specific power outlet on a specific Controller"
+    },
+  ],
   "paths": {
     "/controllers": {
       "get": {
@@ -174,7 +192,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Sensors"
+                  "$ref": "#/components/schemas/RTC"
                 }
               }
             }
