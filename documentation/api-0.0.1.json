@@ -16,12 +16,20 @@
     "/controllers": {
       "get": {
         "summary": "List all controllers",
+        "description": "List of all controllers. Optionally may run a full system search.",
         "tags": [
           "controller"
         ],
         "responses": {
           "200": {
-            "description": "A list of controllers"
+            "description": "A list of controllers",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Controllers"
+                }
+              }
+            }
           }
         }
       }
@@ -72,6 +80,22 @@
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/Controller"
+        }
+      },
+      "Sensor": {
+        "properties": {
+          "model": {
+            "type": "string"
+          },
+          "value": {
+            "type": "object"
+          }
+        }
+      },
+      "Sensors": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Sensor"
         }
       },
       "Error": {
