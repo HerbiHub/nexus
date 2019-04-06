@@ -221,7 +221,50 @@
             }
           }
         }
-      }
+      },
+      "put": {
+        "summary": "Set the setting of a specific outlet",
+        "description": "Set the setting of a specific outlet",
+        "tags": [
+          "Outlet"
+        ],
+        "parameters": [
+          {
+            "name": "address",
+            "in": "path",
+            "required": true,
+            "description": "Address of the controller to access",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of the  outlet to access",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "percent",
+            "in": "query",
+            "required": true,
+            "description": "Output percentage (between 0.0 and 100.0)",
+            "schema": {
+              "type": "number",
+              "maximum": 100,
+              "minimum": 0
+            }
+          },
+        ],
+        "responses": {
+          "204": {
+            "description": "Success",
+          }
+        }
+      },
     }
   },
   "components": {
